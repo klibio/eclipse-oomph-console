@@ -117,8 +117,8 @@
     </macrodef>
 
     <!-- Deploy P2 site to GitHub -->
-    <property name="site.url" value="https://a-langer.github.io/eclipse-oomph-console-site/" />
-    <property name="git.repository" value="https://github.com/a-langer/eclipse-oomph-console-site.git" />
+    <property name="site.url" value="https://klibio.github.io/eclipse-oomph-console-site/" />
+    <property name="git.repository" value="https://github.com/klibio/eclipse-oomph-console-site.git" />
     <property name="git.dest" value="${project.build.directory}/eclipse-oomph-console-site" />
     <condition property="version.isSnapshot" else="false">
         <contains string="${project.version}" substring="-SNAPSHOT" />

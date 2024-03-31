@@ -2,13 +2,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.a-langer</groupId>
+    <groupId>io.klib.tools</groupId>
     <artifactId>org.eclipse.oomph.console.root</artifactId>
     <version>1.0.5-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <url>https://github.com/a-langer/eclipse-oomph-console</url>
+    <url>https://github.com/klibio/eclipse-oomph-console</url>
     <description>Console Oomph Installer</description>
 
     <licenses>
@@ -25,12 +25,18 @@
             <email>langeress@gmail.com</email>
             <url>https://www.linkedin.com/in/a-langer</url>
         </developer>
+        <developer>
+            <id>peterkir</id>
+            <name>Peter Kirschner</name>
+            <email>peter@klib.io</email>
+            <url>https://www.linkedin.com/in/a-langer</url>
+        </developer>
     </developers>
 
     <scm>
-        <connection>scm:git@github.com:a-langer/eclipse-oomph-console.git</connection>
-        <developerConnection>git@github.com:a-langer/eclipse-oomph-console.git</developerConnection>
-        <url>https://github.com/a-langer/eclipse-oomph-console</url>
+        <connection>scm:git@github.com:klibio/eclipse-oomph-console.git</connection>
+        <developerConnection>git@github.com:klibio/eclipse-oomph-console.git</developerConnection>
+        <url>https://github.com/klibio/eclipse-oomph-console</url>
     </scm>
 
     <distributionManagement>
@@ -74,7 +80,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tycho.version>3.0.1</tycho.version>
+        <tycho.version>4.0.7</tycho.version>
         <jarsigner.version>1.3.2</jarsigner.version>
         <maven.source.version>3.2.1</maven.source.version>
         <maven.resources.version>3.2.0</maven.resources.version>
@@ -88,7 +94,8 @@
 
     <!--
         mvn clean install -DskipTests
-        mvn -pl org.eclipse.oomph.console.tp,org.eclipse.oomph.console.core,org.eclipse.oomph.console -am clean package -DskipTests -o
+        mvn -pl org.eclipse.oomph.console.tp,org.eclipse.oomph.console.core,org.eclipse.oomph.console -am
+    clean package -DskipTests -o
         mvn -pl org.eclipse.oomph.console.product -am clean package -DskipTests -o
     -->
     <modules>
@@ -111,7 +118,8 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <!-- See https://git.eclipse.org/c/oomph/org.eclipse.oomph.git/tree/releng/org.eclipse.oomph.parent/pom.xml -->
+        <!-- See
+        https://git.eclipse.org/c/oomph/org.eclipse.oomph.git/tree/releng/org.eclipse.oomph.parent/pom.xml -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -168,7 +176,7 @@
                 <configuration>
                     <target>
                         <artifact>
-                            <groupId>com.github.a-langer</groupId>
+                            <groupId>io.klib.tools</groupId>
                             <artifactId>org.eclipse.oomph.console.tp</artifactId>
                             <version>1.0.5-SNAPSHOT</version>
                         </artifact>
@@ -182,6 +190,11 @@
                             <arch>x86_64</arch>
                         </environment>
                         <environment>
+                            <os>linux</os>
+                            <ws>gtk</ws>
+                            <arch>aarch64</arch>
+                        </environment>
+                        <environment>
                             <os>win32</os>
                             <ws>win32</ws>
                             <arch>x86_64</arch>
@@ -190,6 +203,11 @@
                             <os>macosx</os>
                             <ws>cocoa</ws>
                             <arch>x86_64</arch>
+                        </environment>
+                        <environment>
+                            <os>macosx</os>
+                            <ws>cocoa</ws>
+                            <arch>aarch64</arch>
                         </environment>
                     </environments>
                 </configuration>
@@ -213,6 +231,7 @@
                 <artifactId>tycho-surefire-plugin</artifactId>
                 <version>${tycho.version}</version>
             </plugin>
+
         </plugins>
     </build>
 

@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.github.a-langer</groupId>
+        <groupId>io.klib.tools</groupId>
         <artifactId>org.eclipse.oomph.console.root</artifactId>
         <version>1.0.5-SNAPSHOT</version>
         <relativePath>..</relativePath>
