@@ -94,8 +94,7 @@
 
     <!--
         mvn clean install -DskipTests
-        mvn -pl org.eclipse.oomph.console.tp,org.eclipse.oomph.console.core,org.eclipse.oomph.console -am
-    clean package -DskipTests -o
+        mvn -pl org.eclipse.oomph.console.tp,org.eclipse.oomph.console.core,org.eclipse.oomph.console -am clean package -DskipTests -o
         mvn -pl org.eclipse.oomph.console.product -am clean package -DskipTests -o
     -->
     <modules>
@@ -237,9 +236,10 @@
 
     <!--
         mvn clean verify -Possrh -DskipTests -o
-        mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.0 -o
+        mvn org.eclipse.tycho.extras:tycho-version-bump-plugin:update-product -DnewVersion=1.0.5 -o
+        mvn org.eclipse.tycho.extras:tycho-version-bump-plugin:update-target -DnewVersion=1.0.5 -o
         mvn clean deploy -Possrh,oomph-p2 -DskipTests
-        mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.1.qualifier -o
+        mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.6.qualifier -o
     -->
     <profiles>
         <profile>
