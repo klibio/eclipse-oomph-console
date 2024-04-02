@@ -6,13 +6,13 @@
     <parent>
         <groupId>io.klib.tools</groupId>
         <artifactId>org.eclipse.oomph.console.root</artifactId>
-        <version>1.0.5-SNAPSHOT</version>
+        <version>1.0.5</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>org.eclipse.oomph.console.product</artifactId>
     <packaging>eclipse-repository</packaging>
     <url>https://git.eclipse.org/c/oomph/org.eclipse.oomph.git</url>
-    <description>Eclipse Oomph Installer</description>
+    <description>Eclipse Oomph Console Installer</description>
 
     <profiles>
         <profile>

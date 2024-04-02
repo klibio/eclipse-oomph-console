@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.klib.tools</groupId>
     <artifactId>org.eclipse.oomph.console.root</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.5</version>
     <packaging>pom</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/klibio/eclipse-oomph-console</url>
-    <description>Console Oomph Installer</description>
+    <description>Oomph Console Installer</description>
 
     <licenses>
         <license>
@@ -17,18 +17,28 @@
             <url>https://opensource.org/licenses/EPL-2.0</url>
         </license>
     </licenses>
-
+    <organization>
+        <name>Kirschners GmbH</name>
+        <url>https://klib.io/</url>
+      </organization>
     <developers>
+        <developer>
+            <id>peterkir</id>
+            <email>peter@klib.io</email>
+            <name>Peter Kirschner</name>
+            <url>https://klib.io</url>
+            <organization>Kirschners GmbH</organization>
+            <organizationUrl>https://kirschners.de</organizationUrl>
+            <roles>
+              <role>architect</role>
+              <role>developer</role>
+            </roles>
+            <timezone>1</timezone>
+        </developer>
         <developer>
             <id>a-langer</id>
             <name>Alexey Langer</name>
             <email>langeress@gmail.com</email>
-            <url>https://www.linkedin.com/in/a-langer</url>
-        </developer>
-        <developer>
-            <id>peterkir</id>
-            <name>Peter Kirschner</name>
-            <email>peter@klib.io</email>
             <url>https://www.linkedin.com/in/a-langer</url>
         </developer>
     </developers>
@@ -94,7 +104,8 @@
 
     <!--
         mvn clean install -DskipTests
-        mvn -pl org.eclipse.oomph.console.tp,org.eclipse.oomph.console.core,org.eclipse.oomph.console -am clean package -DskipTests -o
+        mvn -pl org.eclipse.oomph.console.tp,org.eclipse.oomph.console.core,org.eclipse.oomph.console -am
+    clean package -DskipTests -o
         mvn -pl org.eclipse.oomph.console.product -am clean package -DskipTests -o
     -->
     <modules>
@@ -153,6 +164,18 @@
                     <skip>true</skip>
                 </configuration>
             </plugin>
+            <!--
+    <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-version-bump-plugin</artifactId>
+        <version>${tycho.version}</version>
+    </plugin>
+-->
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-versions-plugin</artifactId>
+                <version>${tycho.version}</version>
+            </plugin>
             <!-- Replace of the SNAPSHOT version in the final product configuration -->
             <plugin>
                 <groupId>org.eclipse.tycho</groupId>
@@ -177,7 +200,7 @@
                         <artifact>
                             <groupId>io.klib.tools</groupId>
                             <artifactId>org.eclipse.oomph.console.tp</artifactId>
-                            <version>1.0.5-SNAPSHOT</version>
+                            <version>1.0.5</version>
                         </artifact>
                     </target>
                     <executionEnvironment>org.eclipse.justj.openjdk.hotspot.jre.minimal-17</executionEnvironment>
@@ -235,12 +258,19 @@
     </build>
 
     <!--
-        mvn clean verify -Possrh -DskipTests -o
-        mvn org.eclipse.tycho.extras:tycho-version-bump-plugin:update-product -DnewVersion=1.0.5 -o
-        mvn org.eclipse.tycho.extras:tycho-version-bump-plugin:update-target -DnewVersion=1.0.5 -o
-        mvn clean deploy -Possrh,oomph-p2 -DskipTests
-        mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.6.qualifier -o
-    -->
+# verify build before release
+./mvnw clean verify -Possrh -DskipTests -o
+
+# configure version for release (MANIFEST and pom) - see
+    https://stackoverflow.com/a/34119136/2918516
+./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.5 -o
+
+# releae to sonatype
+./mvnw clean deploy -Possrh,oomph-p2 -DskipTests
+
+# increase version to new snapshot
+./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.6.qualifier -o
+-->
     <profiles>
         <profile>
             <id>ossrh</id>
@@ -331,6 +361,10 @@
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <tags>
+                                <localUsername>${env.USER}</localUsername>
+                                <javaVersion>${java.version}</javaVersion>
+                            </tags>
                         </configuration>
                     </plugin>
                 </plugins>
