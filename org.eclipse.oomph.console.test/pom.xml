@@ -7,11 +7,51 @@
     <parent>
         <groupId>io.klib.tools</groupId>
         <artifactId>org.eclipse.oomph.console.root</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.6</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>org.eclipse.oomph.console.test</artifactId>
     <packaging>eclipse-test-plugin</packaging>
+    <name>${project.artifactId}</name>
+    <url>https://github.com/klibio/eclipse-oomph-console</url>
+    <description>Oomph Console Installer ${project.artifactId}</description>
+    <licenses>
+        <license>
+            <name>EPL-2.0</name>
+            <url>https://opensource.org/licenses/EPL-2.0</url>
+        </license>
+    </licenses>
+    <organization>
+        <name>Kirschners GmbH</name>
+        <url>https://klib.io/</url>
+    </organization>
+    <developers>
+        <developer>
+            <id>peterkir</id>
+            <email>peter@klib.io</email>
+            <name>Peter Kirschner</name>
+            <url>https://klib.io</url>
+            <organization>Kirschners GmbH</organization>
+            <organizationUrl>https://kirschners.de</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>1</timezone>
+        </developer>
+        <developer>
+            <id>a-langer</id>
+            <name>Alexey Langer</name>
+            <email>langeress@gmail.com</email>
+            <url>https://www.linkedin.com/in/a-langer</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git@github.com:klibio/eclipse-oomph-console.git</connection>
+        <developerConnection>git@github.com:klibio/eclipse-oomph-console.git</developerConnection>
+        <url>https://github.com/klibio/eclipse-oomph-console</url>
+    </scm>
 
     <properties>
         <maven.surefire.version>3.0.0-M7</maven.surefire.version>
@@ -46,6 +86,31 @@
         <testOutputDirectory>target/classes</testOutputDirectory>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven.javadoc.version}</version>
+                <configuration>
+                    <detectJavaApiLink>false</detectJavaApiLink>
+                    <javadocVersion>17.0.7</javadocVersion>
+                    <additionalOptions>
+                        <option>-Xdoclint:-missing</option>
+                        <option>-html5</option>
+                        <option>-windowtitle "${project.description}"</option>
+                    </additionalOptions>
+                    <!-- 
+<excludePackageNames>test.*:*.tests:*.tests.*:*.test:*.test.*</excludePackageNames>
+-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>tycho-surefire-plugin</artifactId>
                 <version>${tycho.version}</version>
@@ -59,7 +124,8 @@
                         <project.basedir>${project.basedir}</project.basedir>
                         <project.build.directory>${project.build.directory}</project.build.directory>
                         <setup.p2.agent>${user.home}/.p2</setup.p2.agent>
-                        <oomph.redirection.setups>index:/->http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/</oomph.redirection.setups>
+                        <oomph.redirection.setups>
+                            index:/->http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/</oomph.redirection.setups>
                         <file.encoding>UTF-8</file.encoding>
                         <org.eclipse.emf.ecore.plugin.EcorePlugin.doNotLoadResourcesPlugin>true</org.eclipse.emf.ecore.plugin.EcorePlugin.doNotLoadResourcesPlugin>
                         <headless.startup>true</headless.startup>

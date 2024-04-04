@@ -50,10 +50,10 @@
     </listAttribute>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
-    <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+    <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl}"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
-    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dosgi.requiredJavaVersion=1.8 -Xms256m -Xmx2048m&#13;&#10;-Dxoomph.redirection.setups=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/-&gt;http://download.eclipse.org/oomph/setups/&#13;&#10;-Dheadless.startup=true&#13;&#10;-Demca.launcher.console=true&#13;&#10;-Doomph.product.id=epp.package.java&#13;&#10;-Doomph.product.version=latest.released&#13;&#10;-Doomph.project.streams=dev&#13;&#10;-Doomph.installer.verbose=true&#13;&#10;-D#setup.p2.agent=/home/admin1/.p2"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dosgi.requiredJavaVersion=11 -Xms256m -Xmx2048m&#13;&#10;-Dxoomph.redirection.setups=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/-&gt;http://download.eclipse.org/oomph/setups/&#13;&#10;-Dheadless.startup=true&#13;&#10;-Demca.launcher.console=true&#13;&#10;-Doomph.product.id=epp.package.java&#13;&#10;-Doomph.product.version=latest.released&#13;&#10;-Doomph.project.streams=dev&#13;&#10;-Doomph.installer.verbose=true&#13;&#10;-D#setup.p2.agent=/home/admin1/.p2"/>
     <stringAttribute key="pde.version" value="3.3"/>
     <stringAttribute key="product" value="com.ericsson.emca.launcher.rcp.OomphConsole"/>
     <setAttribute key="selected_features">

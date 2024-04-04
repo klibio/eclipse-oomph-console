@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Console Oomph Test
 Bundle-SymbolicName: org.eclipse.oomph.console.test;singleton:=true
-Bundle-Version: 1.0.5
+Bundle-Version: 1.0.6
 Bundle-Activator: org.eclipse.oomph.console.test.Activator
 Bundle-Vendor: com.github.a-langer
 Require-Bundle: org.eclipse.ui,
@@ -14,8 +14,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.oomph.console
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.eclipse.oomph.console.test
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8,
- JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Build-Jdk-Spec: 11
 Import-Package: org.junit,
  org.eclipse.oomph.console.application
