@@ -7,7 +7,7 @@
     <parent>
         <groupId>io.klib.tools</groupId>
         <artifactId>org.eclipse.oomph.console.root</artifactId>
-        <version>1.0.6</version>
+        <version>1.0.7-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>org.eclipse.oomph.console.core</artifactId>

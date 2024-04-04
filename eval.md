@@ -9,13 +9,13 @@
 ./mvnw clean verify -Possrh -DskipTests -o
 
 # configure version for release (MANIFEST and pom) - see https://stackoverflow.com/a/34119136/2918516
-./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.6 -o
+./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.7 -o
 
 # releae to sonatype
 ./mvnw clean deploy -Possrh -DskipTests
 
 # increase version to new snapshot
-./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.7.qualifier -o
+./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.8.qualifier -o
 ```
 
 ##
