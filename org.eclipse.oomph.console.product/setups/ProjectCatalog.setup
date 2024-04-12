@@ -101,12 +101,15 @@
         <requirement
             name="org.eclipse.oomph.console.feature.feature.group"
             versionRange="0.0.0"/>
-<!--
-        <repository
-            url="https://a-langer.github.io/eclipse-oomph-console-site/"/>
+<!-- deployed site
+        <repository url="https://a-langer.github.io/eclipse-oomph-console-site/"/>
 -->
-        <repository
-            url="file:/Users/peterkir/git/klibio/eclipse-oomph-console/org.eclipse.oomph.console.site/target/repository"/>           
+<!-- local site on mac
+        <repository url="file:/Users/peterkir/git/klibio/eclipse-oomph-console/org.eclipse.oomph.console.site/target/repository"/>
+-->
+<!-- local site on win
+-->
+<repository url="file:C:/git/github.com/klibio/eclipse-oomph-console/org.eclipse.oomph.console.site/target"/>
       </setupTask>
     </setupTask>
     <stream name="master" label="master"/>

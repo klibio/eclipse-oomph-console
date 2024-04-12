@@ -1,21 +1,22 @@
 # eval.md
 
-
-
-## versioning and releasing
+## versioning and deployment to sonatype maven snapshot and release repo
 
 ```bash
-# verify build before release
+# verify build before deployment (snapshot or release)
 ./mvnw clean verify -Possrh -DskipTests -o
 
-# configure version for release (MANIFEST and pom) - see https://stackoverflow.com/a/34119136/2918516
-./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.7 -o
-
-# releae to sonatype
+# deploy to sonatype SNAPSHOT repo (happes implicitly becuase qualifier/SNAPSHOTS are attached in versions)
 ./mvnw clean deploy -Possrh -DskipTests
 
-# increase version to new snapshot
-./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.8.qualifier -o
+# configure version for RELEASE (MANIFEST and pom) - see https://stackoverflow.com/a/34119136/2918516
+./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.8 -o
+
+# deploy to sonatype RELEASE repo
+./mvnw clean deploy -Possrh -DskipTests
+
+# increase version to new qualifier/SNAPSHOTS
+./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.9.qualifier -o
 ```
 
 ##
