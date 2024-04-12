@@ -98,6 +98,8 @@
         <maven.deploy.version>3.1.1</maven.deploy.version>
         <nexus.staging.maven.version>1.6.13</nexus.staging.maven.version>
         <maven.gpg.version>3.2.2</maven.gpg.version>
+
+        <tycho.scmUrl>scm:git:https://github.com:klibio/eclipse-oomph-console.git</tycho.scmUrl>
     </properties>
 
     <modules>
@@ -173,6 +175,23 @@
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>tycho-packaging-plugin</artifactId>
                 <version>${tycho.version}</version>
+                <configuration>
+                    <sourceReferences>
+                        <generate>true</generate>
+                    </sourceReferences>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.eclipse.tycho</groupId>
+                        <artifactId>tycho-buildtimestamp-jgit</artifactId>
+                        <version>${tycho.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.eclipse.tycho.extras</groupId>
+                        <artifactId>tycho-sourceref-jgit</artifactId>
+                        <version>${tycho.version}</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <phase>package</phase>
