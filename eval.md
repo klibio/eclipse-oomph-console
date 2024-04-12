@@ -2,21 +2,25 @@
 
 ## versioning and deployment to sonatype maven snapshot and release repo
 
+### deploy to SNAPSHOT repository
 ```bash
 # verify build before deployment (snapshot or release)
 ./mvnw clean verify -Possrh -DskipTests -o
-
 # deploy to sonatype SNAPSHOT repo (happes implicitly becuase qualifier/SNAPSHOTS are attached in versions)
 ./mvnw clean deploy -Possrh -DskipTests
+```
 
+### deploy to RELEASE repository
+```bash
+# verify build before deployment (snapshot or release)
+./mvnw clean verify -Possrh -DskipTests -o
 # configure version for RELEASE (MANIFEST and pom) - see https://stackoverflow.com/a/34119136/2918516
-./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.8 -o
-
+./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.9 -o
 # deploy to sonatype RELEASE repo
 ./mvnw clean deploy -Possrh -DskipTests
 
-# increase version to new qualifier/SNAPSHOTS
-./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.9.qualifier -o
+# start new dev cycle - increase version to new qualifier/SNAPSHOTS
+./mvnw org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.10.qualifier -o
 ```
 
 ##

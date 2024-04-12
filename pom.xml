@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.klib.tools</groupId>
     <artifactId>org.eclipse.oomph.console.root</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -211,7 +211,7 @@
                         <artifact>
                             <groupId>io.klib.tools</groupId>
                             <artifactId>org.eclipse.oomph.console.tp</artifactId>
-                            <version>1.0.8</version>
+                            <version>1.0.9-SNAPSHOT</version>
                         </artifact>
                     </target>
                     <executionEnvironment>org.eclipse.justj.openjdk.hotspot.jre.minimal-17</executionEnvironment>
